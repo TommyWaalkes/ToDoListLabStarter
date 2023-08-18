@@ -1,0 +1,12 @@
+<h2>TO DO LIST</h2>
+<div class="background">
+  <p>Filter To Dos:</p>
+  <!-- Order matters on attributes, ngmodelchange needs to be after ngmodel to see changes -->
+  <input type="text"  [(ngModel)]="filterText" (ngModelChange)="filterTodos()"/>
+  <p *ngIf="allCompleted()">Congrats you have completed all your tasks!</p>
+  <ng-container *ngFor="let t of todos; index as i">
+    <app-to-do [todoItem]="t" [index]="i" (deleteItemEvent)="deleteItem($event)"></app-to-do>
+  </ng-container>
+
+  <app-new-to-do-form (newTodoEvent)="addNewItem($event)"></app-new-to-do-form>
+</div>

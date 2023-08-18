@@ -1,0 +1,9 @@
+<form (ngSubmit)="createNewTodo()">
+    <p>New To Do Item</p>
+    
+    
+    <!-- You need the name attirbute for ngModel to work -->
+    <input type="text" name="description" [(ngModel)]="newTodo.description" placeholder="add new task"/>
+    <br/>
+    <input class="pinkButton centerElement"  type="submit" value="Add to List"/>
+</form>

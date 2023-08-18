@@ -1,0 +1,11 @@
+<p [ngStyle]="todoItem.completed? {'text-decoration':'line-through'}:{}">
+    <button class="button" *ngIf="!todoItem.completed && !editing" (click)="complete()">Complete Task</button> 
+    <span *ngIf="!editing">{{todoItem.description}}: {{todoItem.completed}} </span> 
+    <button class="button" (click)="toggleEdit()" *ngIf="!editing else editForm">Edit</button>
+    <button class="xButton" (click)="deleteTodo()">X</button>
+</p>
+
+<ng-template #editForm>
+<input type="text" name="description" [(ngModel)]="todoItem.description"/>
+<button class="button" (click)="toggleEdit()">Done Editing</button>
+</ng-template>
